@@ -1,0 +1,207 @@
+﻿@page "/"
+
+<PageTitle>Accueil</PageTitle>
+
+<h1>Bonjour !</h1>
+
+<p>Cette application est un exemple d'utilisation de Razor avec la trousse de developpement SDG</p>
+
+<h2 id="alert">Alerte générale (qc-alert)</h2>
+            <h3>Exemples</h3>
+            <h4>Alerte jaune</h4>
+            <p>
+                <a href="javascript:;"
+                  id="show-qc-alert"
+                   hidden
+                >
+                    Réafficher l'alerte
+                </a>
+            </p>
+
+
+            <qc-alert id="alert-warning"
+                      type="warning"
+                      maskable="true"
+                      content="Alerte jaune d'importance élevée"
+            >
+            </qc-alert>
+
+
+
+            <h4>Alerte bleue</h4>
+            <qc-alert id="alert-general"
+                      type="general"
+                      maskable="false"
+
+            >
+                <p>Alerte bleue d'importance modérée <a href="javascript:;">avec un lien textuel</a></p>
+            </qc-alert>
+
+
+            <h3>Documentation technique</h3>
+
+            <h4>Attributs</h4>
+
+            <table class="qc-table qc-striped component-attributes-description">
+                <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Valeur attendue</th>
+                    <th>Valeur par défaut</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tr>
+                    <td>type</td>
+                    <td>"general" ou "warning"</td>
+                    <td>"general"</td>
+                    <td>Type de l'alerte : s'il s'agit d'une alerte bleue ou jaune</td>
+                </tr>
+                <tr>
+                    <td>maskable</td>
+                    <td>"true" ou "false"</td>
+                    <td>"true"</td>
+                    <td>Afficher le bouton de fermeture de l'alerte</td>
+                </tr>
+                <tr>
+                    <td>content</td>
+                    <td>Texte</td>
+                    <td>Chaine vide</td>
+                    <td>Afficher le contenu de l'alerte</td>
+                </tr>
+                <tr>
+                    <td>hide</td>
+                    <td>"true" ou "false"</td>
+                    <td>"false"</td>
+                    <td>Masque ou affiche l'alerte</td>
+                </tr>
+            </table>
+
+            <h4>Événement JS</h4>
+
+            <p>Un événement JS <code class="qc-bg-color-grey-pale">qc.alert.hide</code> est émis à la fermeture de l'alerte</p>
+            <script id="qc-alert-event-exemple">
+                /* Fermer l'alerte jaune pour voir un message dans la console de votre navigateur */
+                document.addEventListener(
+                    'qc.alert.hide',
+                    (e) => { console.log('Fermeture de l\'alerte id=\'' + e.target.id + '\'');}
+                )
+            </script>
+
+            <h4>Zone d'ajout de contenu HTML</h4>
+
+            <p>Ci-dessous, la zone d'ajout de contenu HTML (balise &lt;slot&gt;) délimitée en pointillé.</p>
+
+            <qc-alert id="qc-alert-slots">
+                <div style="border:2px dashed; padding: var(--qc-spacer-xs);">
+                    Contenu par défaut
+                </div>
+            </qc-alert>
+
+
+            <hr />
+
+            <!-- avis -->
+            <h2 id="notice">Avis (qc-notice)</h2>
+            <h3>Exemples</h3>
+            <h4>Information</h4>
+
+            <qc-notice id="notice-info"
+                       title="Nouvelle règlementation"
+                       content="Les nouveaux règlements de pêche seront en vigeur à partir du 12 mai.">
+            </qc-notice>
+
+
+            <h4>Avertissement</h4>
+
+            <qc-notice id="notice-exemple-warning"
+                       type="warning"
+                       title="Migration des contenus"
+                       content="Les contenus seront transférés dans Québec.ca à partir du 16 février et le site sera fermé le 20 avril.">
+            </qc-notice>
+
+
+
+            <h4>Succès</h4>
+
+            <qc-notice id="notice-success"
+                       type="success"
+                       title="Votre demande d'inscription a été reçue"
+                       content="Votre code de confirmation sera envoyé par courriel.">
+            </qc-notice>
+
+
+
+            <h4>Erreur</h4>
+
+            <qc-notice id="notice-error"
+                       type="error"
+                       title="Des erreurs sont présentes dans le formulaire.">
+                <ul>
+                    <li>
+                        <a href="javascript:;">Le champ « Nom de famille » est obligatoire ;</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">Le champ « Prénom » est obligatoire ;</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">Le champ « Numéro de dossier » est obligatoire.</a>
+                    </li>
+                </ul>
+            </qc-notice>
+
+
+
+            <h3>Documentation technique</h3>
+
+            <h4>Attributs</h4>
+
+            <table class="qc-table qc-striped component-attributes-description">
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Valeur attendue</th>
+                        <th>Valeur par défaut</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>title</td>
+                    <td>Texte</td>
+                    <td>Chaine vide</td>
+                    <td>Titre de l'avis</td>
+                </tr>
+                <tr>
+                    <td>type</td>
+                    <td>information, warning, success, error</td>
+                    <td>information</td>
+                    <td>Le type d'avis</td>
+                </tr>
+                <tr>
+                    <td>content</td>
+                    <td>Texte</td>
+                    <td>Chaîne vide</td>
+                    <td>Le contenu de l'avis</td>
+                </tr>
+                <tr>
+                    <td>header</td>
+                    <td>h1,h3,h2,h3,h4,h5,h6</td>
+                    <td>h2</td>
+                    <td>La balise du niveau de titre de l'avis</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <h4>Zone d'ajout de contenu HTML</h4>
+
+            <p>Ci-dessous, la zone d'ajout de contenu HTML (balise &lt;slot&gt;) délimitée en pointillé.</p>
+
+            <qc-notice id="qc-notice-slots">
+                <div style="border:2px dashed; padding: var(--qc-spacer-xs);">
+                    Contenu par défaut
+                </div>
+            </qc-notice>
+
+
+<hr />

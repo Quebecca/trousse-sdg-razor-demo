@@ -1,0 +1,23 @@
+﻿@inherits LayoutComponentBase
+
+<header>
+        <qc-piv-header id="pivEntete"
+                       title-text="Trousse de développement du Système de design gouvernemental"
+                       alt-logo="Signature du gouvernement du Québec. Accédez au Système de design gouvernemental.">
+        </qc-piv-header>
+        <div class="qc-container">
+            <NavMenu />
+        </div>
+</header>
+
+<main id="main">
+        <div class="qc-container">
+            @Body
+            <qc-to-top></qc-to-top>
+        </div>
+</main>
+
+<footer>
+
+    <qc-piv-footer></qc-piv-footer>
+</footer>
